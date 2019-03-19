@@ -1,7 +1,10 @@
 const devBaseRestUrl =
-  "https://www.easy-mock.com/mock/5c8e3975c12de836b2636635/hyz";
+  "http://utoss.linkme8.cn:19907/mock/5c8f0c3b9d070e0021a7cf75/hyz";
 
 export default {
+  projectName: "hyz-vue-preset",
+  copyright: "© 2019 All Rights Reserved 广州市捍御者信息科技有限公司",
+
   //config for http
   http: {
     baseURL: process.env.NODE_ENV === "production" ? "" : devBaseRestUrl,

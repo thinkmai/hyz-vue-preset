@@ -1,22 +1,18 @@
 <template>
   <div>
     <hyz-header
-      title="HYZ-COMPONENTS"
-      personName="HYZ"
-      showMsg
-      :msgCount="27"
-      enableFullScreen
+      :title="$t('projectName')"
+      :personName="user.personName"
       :menus="menus"
       @on-menu-changed="onMenuChanged"
     >
       <template #logo>
         <hyz-icon name="logo" color="white" scale="5"></hyz-icon>
       </template>
-      <template #extra>
-        <span>Have A Good Day!</span>
-      </template>
     </hyz-header>
-    <router-view></router-view>
+    <div style="padding: 24px;">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -27,6 +23,11 @@ export default {
     return {
       menus: appRouter.children
     };
+  },
+  computed: {
+    user() {
+      return this.$store.getters.user || {};
+    }
   },
   methods: {
     onMenuChanged(type) {

@@ -5,10 +5,12 @@ import router from "../router/index";
 
 const app = {
   state: {
-    token: ""
+    token: "",
+    user: {}
   },
   mutations: {
-    SET_TOKEN: (state, payload) => (state.token = payload)
+    SET_TOKEN: (state, payload) => (state.token = payload),
+    SET_USER: (state, payload) => (state.user = payload)
   },
   actions: {
     fetchToken({ commit, dispatch }, payload) {
@@ -68,8 +70,6 @@ const app = {
           Vue.bus.$emit("$set_login_loding_false");
 
           commit("SET_USER", response);
-          const isAdmin = response.userName === "admin" ? 1 : 0;
-          commit("SET_IS_ADMIN", isAdmin);
           if (router.currentRoute.path === "/login") {
             router.push("/");
           }
@@ -82,12 +82,8 @@ const app = {
     },
 
     logout() {
-      Vue.ls.clear();
+      Vue.ls.remove("TOKEN");
       router.push("/login");
-    },
-
-    removeMsg({ commit }, payload) {
-      commit("REMOVE_MSG", payload);
     }
   }
 };

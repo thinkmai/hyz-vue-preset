@@ -13,28 +13,11 @@ export const appRouter = {
       component: () => import("../views/home")
     },
     {
-      path: "403",
-      name: "403",
-      icon: "ios-home",
-      label: "403",
-      hide: true,
-      component: () => import("../views/error/403.vue")
-    },
-    {
-      path: "404",
-      name: "404",
-      icon: "ios-home",
-      label: "404",
-      hide: true,
-      component: () => import("../views/error/404.vue")
-    },
-    {
-      path: "500",
-      name: "500",
-      icon: "ios-home",
-      label: "500",
-      hide: true,
-      component: () => import("../views/error/500.vue")
+      path: "profile",
+      name: "profile",
+      label: "账户信息",
+      hidden: true,
+      component: () => import("../views/profile/PersonSetting.vue")
     }
   ]
 };
@@ -46,6 +29,33 @@ export const commonRouters = [
     name: "login",
     label: "登录",
     component: () => import("../views/login")
+  },
+  {
+    path: "/403",
+    name: "403",
+    label: "403",
+    props: { type: "403" },
+    component: () => import("../views/error")
+  },
+  {
+    path: "/404",
+    name: "404",
+    label: "404",
+    props: { type: "404" },
+    component: () => import("../views/error")
+  },
+  {
+    path: "/500",
+    name: "500",
+    label: "500",
+    props: { type: "500" },
+    component: () => import("../views/error")
+  },
+  {
+    path: "/*",
+    name: "error-404",
+    label: "404-页面不存在",
+    redirect: "/404"
   }
 ];
 

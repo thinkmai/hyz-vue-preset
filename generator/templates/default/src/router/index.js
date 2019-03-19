@@ -10,30 +10,23 @@ const RouterConfig = {
 };
 
 const router = new VueRouter(RouterConfig);
-// store.commit("SET_APP_MENUS", appRouter.children);
 
-const whiteList = ["login"]; // 不重定向白名单
+const whiteList = ["login", "403", "404", "500"]; // 不重定向白名单
 
 router.beforeEach((to, from, next) => {
   LoadingBar.start();
   const token = Vue.ls.get("TOKEN");
-  if (whiteList.includes(to.name)) {
-    next();
-  } else {
-    if (token) {
-      if (to.path === "/login") {
-        next("/");
-      } else {
-        next();
-        // const toPath = to.path.substr(1)
-        // if(isAdmin == 1) {
-        //   next()
-        // } else { //没权限，禁止访问
-        //   next('/403')
-        // }
-      }
+  if (token) {
+    if (to.path === "/login") {
+      next("/");
     } else {
-      next("/login"); // 否则全部重定向到登录页
+      next();
+    }
+  } else {
+    if (whiteList.includes(to.name)) {
+      next();
+    } else {
+      next("/login");
     }
   }
 });

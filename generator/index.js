@@ -6,15 +6,16 @@ module.exports = (api, options, rootOptions) => {
   // 命令
   api.extendPackage({
     scripts: {
-      start: "vue-cli-service serve"
+      start: "vue-cli-service serve --open"
     }
   });
 
   // 项目依赖
   api.extendPackage({
     dependencies: {
-      "hyz-components": "^0.2.4",
-      iview: "^3.3.2"
+      "hyz-components": "@latest",
+      "vue-i18n": "^8.9.0",
+      iview: "@latest"
     }
   });
 
