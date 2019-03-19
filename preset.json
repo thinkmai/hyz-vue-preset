@@ -1,0 +1,25 @@
+{
+  "useConfigFiles": true,
+  "router": true,
+  "vuex": true,
+  "cssPreprocessor": "less",
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {
+      "config": "recommended",
+      "lintOn": ["save", "commit"]
+    }
+  },
+  "configs": {
+    "postcss": {
+      "plugins": {}
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not ie <= 8",
+      "android >= 4",
+      "ios >= 8"
+    ]
+  }
+}
