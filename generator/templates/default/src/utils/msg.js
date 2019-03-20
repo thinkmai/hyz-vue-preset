@@ -19,9 +19,7 @@ class MSG {
     switch (code) {
       case 401:
       case 50401:
-        setTimeout(() => {
-          store.dispatch("logout");
-        }, 1500);
+        store.dispatch("logout");
         break;
       case 403:
         router.push({ name: "403" });
