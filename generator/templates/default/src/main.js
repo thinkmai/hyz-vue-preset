@@ -4,12 +4,14 @@ import iView from "iview";
 import VueI18n from "vue-i18n";
 import messages from "./locale";
 import HYZ from "hyz-components";
+import Icon from "hyz-components/src/components/icon";
 import "hyz-components/dist/hyz-components.css";
 import "iview/dist/styles/iview.css";
 import "./styles/index.less";
 import config from "./config";
 import MSG from "./utils/msg";
 
+Vue.component("HyzIcon", Icon);
 Vue.use(HYZ, config);
 Vue.use(VueI18n);
 
