@@ -5,7 +5,7 @@ export default {
   projectName: "hyz-vue-preset",
   copyright: "© 2019 All Rights Reserved 广州市捍御者信息科技有限公司",
 
-  //turn off this prop will not require login
+  //turn off this option will not require login
   enableAuth: false,
 
   //config for http
