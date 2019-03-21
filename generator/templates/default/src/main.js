@@ -16,6 +16,7 @@ Vue.use(iView);
 Vue.config.productionTip = false;
 
 Vue.prototype.$config = config;
+window._ = require("lodash");
 
 new Vue({
   router,
