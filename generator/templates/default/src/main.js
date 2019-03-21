@@ -26,10 +26,12 @@ new Vue({
     const msg = new MSG();
     msg.init();
 
-    //fetch account
-    const token = Vue.ls.get("TOKEN");
-    if (token) {
-      store.dispatch("fetchAccount");
+    if (config.enableAuth) {
+      //fetch account
+      const token = Vue.ls.get("TOKEN");
+      if (token) {
+        store.dispatch("fetchAccount");
+      }
     }
   }
 }).$mount("#app");

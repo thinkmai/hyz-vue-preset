@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import { routers } from "./defines";
 import { LoadingBar } from "iview";
+import config from "../config";
+
 Vue.use(VueRouter);
 
 const RouterConfig = {
@@ -15,19 +17,23 @@ const whiteList = ["login", "403", "404", "500"]; // 不重定向白名单
 
 router.beforeEach((to, from, next) => {
   LoadingBar.start();
-  const token = Vue.ls.get("TOKEN");
-  if (token) {
-    if (to.path === "/login") {
-      next("/");
+  if (config.enableAuth) {
+    const token = Vue.ls.get("TOKEN");
+    if (token) {
+      if (to.path === "/login") {
+        next("/");
+      } else {
+        next();
+      }
     } else {
-      next();
+      if (whiteList.includes(to.name)) {
+        next();
+      } else {
+        next("/login");
+      }
     }
   } else {
-    if (whiteList.includes(to.name)) {
-      next();
-    } else {
-      next("/login");
-    }
+    next();
   }
 });
 
