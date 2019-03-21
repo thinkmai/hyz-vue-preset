@@ -1,7 +1,7 @@
 <template>
   <div>
     <hyz-header
-      :title="$t('projectName')"
+      :title="$config.projectName"
       :personName="user.personName"
       :menus="menus"
       @on-menu-changed="onMenuChanged"

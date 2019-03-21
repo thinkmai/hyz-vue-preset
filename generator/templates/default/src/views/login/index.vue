@@ -1,8 +1,8 @@
 <template>
   <hyz-login
     ref="login"
-    :title="$t('projectName')"
-    :copyright="$t('copyright')"
+    :title="$config.projectName"
+    :copyright="$config.copyright"
     @has-empty-info="onHasEmptyInfo"
     @login="onLogin"
   >

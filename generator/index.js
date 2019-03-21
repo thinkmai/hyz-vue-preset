@@ -14,7 +14,6 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage({
     dependencies: {
       "hyz-components": "^0.2.9",
-      "vue-i18n": "^8.9.0",
       iview: "^3.3.2"
     }
   });
