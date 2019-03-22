@@ -19,6 +19,9 @@
             "x-invalid-end-tag": false
           }
         ]
+      },
+      "globals": {
+        "_": true
       }
     },
     "postcss": {
