@@ -11,6 +11,8 @@ export default {
   //config for http
   http: {
     baseURL: process.env.NODE_ENV === "production" ? "" : devBaseRestUrl,
-    timeout: 10 * 1000
+    timeout: 10 * 1000,
+    noToken: true,
+    showSpin: true
   }
 };
