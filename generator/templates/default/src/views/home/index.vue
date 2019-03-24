@@ -10,8 +10,12 @@
       <template #toolbtn>
         <Button>自定义</Button>
       </template>
-      <template v-if="useCustomCard" #card="item">
-        <div style="height: 80px; background: #efefef;padding: 12px;">{{ item.name }}</div>
+      <template v-if="useCustomCard" #card="list">
+        <Row :gutter="12">
+          <i-col v-for="(item, i) in list" :key="i" style="margin-bottom: 12px;" :span="4">
+            <div style="height: 80px; background: #efefef;padding: 12px;">{{ item.name }}</div>
+          </i-col>
+        </Row>
       </template>
     </hyz-crud>
   </div>
