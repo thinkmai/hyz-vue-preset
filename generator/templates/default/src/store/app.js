@@ -64,7 +64,10 @@ const app = {
       Vue.http({
         method: "get",
         url: "account/user/current",
-        showSpin: false
+        showSpin: false,
+        headers: {
+          Authorization: "Bearer " + Vue.ls.get("TOKEN")
+        }
       })
         .then(response => {
           Vue.bus.$emit("$set_login_loding_false");
