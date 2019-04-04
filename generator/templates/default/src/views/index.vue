@@ -58,7 +58,7 @@ export default {
   display: none;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 10086;
 }
 
 .loading > div {
