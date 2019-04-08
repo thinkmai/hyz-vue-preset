@@ -1,5 +1,8 @@
-const devBaseRestUrl =
-  "http://utoss.linkme8.cn:19907/mock/5c8f0c3b9d070e0021a7cf75/hyz";
+const { hostname, port, protocol } = window.location;
+const restUrl =
+  process.env.NODE_ENV === "production"
+    ? `${protocol}//${hostname}:${port}/api/`
+    : `http://utoss.linkme8.cn:19907/mock/5c8f0c3b9d070e0021a7cf75/hyz`;
 
 export default {
   projectName: "hyz-vue-preset",
@@ -10,7 +13,7 @@ export default {
 
   //config for http
   http: {
-    baseURL: process.env.NODE_ENV === "production" ? "" : devBaseRestUrl,
+    baseURL: restUrl,
     timeout: 10 * 1000,
     noToken: true,
     showSpin: true

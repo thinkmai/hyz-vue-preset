@@ -63,7 +63,7 @@ const app = {
     fetchAccount({ commit }) {
       Vue.http({
         method: "get",
-        url: "account/user/current",
+        url: "account/v1/user/current",
         showSpin: false,
         headers: {
           Authorization: "Bearer " + Vue.ls.get("TOKEN")
