@@ -7,7 +7,7 @@ import config from "../config";
 Vue.use(VueRouter);
 
 const RouterConfig = {
-  mode: "history",
+  // mode: "history",
   routes: routers
 };
 
