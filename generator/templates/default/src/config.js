@@ -2,7 +2,7 @@ const { hostname, port, protocol } = window.location;
 const restUrl =
   process.env.NODE_ENV === "production"
     ? `${protocol}//${hostname}:${port}/api/`
-    : `http://utoss.linkme8.cn:19907/mock/5c8f0c3b9d070e0021a7cf75/hyz`;
+    : `https://turbo.linkme8.cn:33003/mock/5c8f0c3b9d070e0021a7cf75/hyz`;
 
 export default {
   projectName: "hyz-vue-preset",
