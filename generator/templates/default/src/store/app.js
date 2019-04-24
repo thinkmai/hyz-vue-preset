@@ -79,7 +79,7 @@ const app = {
         })
         .catch(() => {
           Vue.bus.$emit("$set_login_loding_false");
-          Vue.ls.set("TOKEN", "a");
+          Vue.ls.remove("TOKEN");
           router.push("/login");
         });
     },
