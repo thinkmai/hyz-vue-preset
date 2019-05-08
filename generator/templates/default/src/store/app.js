@@ -2,6 +2,7 @@ import jsSHA from "jssha";
 import qs from "qs";
 import Vue from "vue";
 import router from "../router/index";
+import Config from "../config";
 
 const app = {
   state: {
@@ -71,10 +72,26 @@ const app = {
       })
         .then(response => {
           Vue.bus.$emit("$set_login_loding_false");
+          const menuList = _.filter(response.menuList, {
+            sysFlag: Config.sysFlag
+          });
+          const menus = _.uniq(_.map(menuList, "name"));
+          Vue.ls.set("AUTH_MENUS", menus);
+
+          const isAdmin = response.userName === "admin" ? 1 : 0;
+          Vue.ls.set("IS_ADMIN", isAdmin);
 
           commit("SET_USER", response);
           if (router.currentRoute.path === "/login") {
-            router.push("/");
+            if (isAdmin) {
+              router.push("/");
+            } else {
+              let name =
+                menus.indexOf("home") > -1
+                  ? "home"
+                  : _.get(menus, "[0]", "404");
+              router.push({ name });
+            }
           }
         })
         .catch(() => {
@@ -86,6 +103,8 @@ const app = {
 
     logout() {
       Vue.ls.remove("TOKEN");
+      Vue.ls.remove("IS_ADMIN");
+      Vue.ls.remove("AUTH_MENUS");
       router.push("/login");
     }
   }

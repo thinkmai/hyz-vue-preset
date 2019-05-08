@@ -19,15 +19,25 @@ router.beforeEach((to, from, next) => {
   LoadingBar.start();
   if (config.enableAuth) {
     const token = Vue.ls.get("TOKEN");
-    if (token) {
-      if (to.path === "/login") {
-        next("/");
-      } else {
-        next();
-      }
+    const isAdmin = Vue.ls.get("IS_ADMIN");
+    const authMenus = Vue.ls.get("AUTH_MENUS");
+    if (whiteList.includes(to.name)) {
+      next();
     } else {
-      if (whiteList.includes(to.name)) {
-        next();
+      if (token) {
+        if (to.path === "/login") {
+          next("/");
+        } else {
+          if (isAdmin) {
+            next();
+          } else {
+            if (authMenus.includes(to.name)) {
+              next();
+            } else {
+              next("/403");
+            }
+          }
+        }
       } else {
         next("/login");
       }

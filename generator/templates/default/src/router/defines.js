@@ -1,3 +1,5 @@
+import Config from "../config";
+
 //需要权限验证的路由
 export const appRouter = {
   path: "/",
@@ -17,7 +19,18 @@ export const appRouter = {
       name: "profile",
       label: "账户信息",
       hidden: true,
-      component: () => import("../views/profile/PersonSetting.vue")
+      props: { module: "profile", useSideMenu: Config.useSideMenu },
+      component: () => import("../views/BlankLayout.vue"),
+      redirect: "/profile/test/",
+      children: [
+        {
+          path: "test",
+          name: "test",
+          icon: "ios-home",
+          label: "test",
+          component: () => import("../views/profile/PersonSetting.vue")
+        }
+      ]
     }
   ]
 };

@@ -4,6 +4,8 @@
       :title="$config.projectName"
       :personName="user.personName"
       :menus="menus"
+      :authMenus="authMenus"
+      :enable-nav-children="!$config.useSideMenu"
       @on-menu-changed="onMenuChanged"
     >
       <template #logo>
@@ -35,6 +37,9 @@ export default {
   computed: {
     user() {
       return this.$store.getters.user || {};
+    },
+    authMenus() {
+      return this.$ls.get("AUTH_MENUS");
     }
   },
   methods: {
