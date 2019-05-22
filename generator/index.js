@@ -13,7 +13,7 @@ module.exports = (api, options, rootOptions) => {
   // 项目依赖
   api.extendPackage({
     dependencies: {
-      "hyz-components": "^0.5.1",
+      "hyz-components": "^0.6.2",
       iview: "^3.3.2"
     }
   });
