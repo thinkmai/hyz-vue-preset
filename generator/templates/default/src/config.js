@@ -1,7 +1,7 @@
 const { hostname, port, protocol } = window.location;
-const restUrl =
+const url =
   process.env.NODE_ENV === "production"
-    ? `${protocol}//${hostname}:${port}/api/`
+    ? `${protocol}//${hostname}:${port}`
     : `https://turbo.linkme8.cn:33003/mock/5c8f0c3b9d070e0021a7cf75/hyz`;
 
 export default {
@@ -16,7 +16,7 @@ export default {
 
   //config for http
   http: {
-    baseURL: restUrl,
+    baseURL: url + "/api/",
     timeout: 10 * 1000,
     noToken: true,
     showSpin: true
