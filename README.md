@@ -2,7 +2,6 @@
 
 ## 提供如下功能
 
-- [x] ESlint + Prettier
 - [x] Vue-Router + Vuex
 - [x] hyz-components 集成
 - [x] iview 集成
