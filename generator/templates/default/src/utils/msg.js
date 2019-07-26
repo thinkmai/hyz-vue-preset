@@ -79,6 +79,12 @@ class MSG {
             Vue.bus.$emit("$WS_MSG", msgData);
             break;
         }
+        Vue.ws.send(
+          JSON.stringify({
+            type: "response",
+            messageId: msgData.messageId
+          })
+        );
       }
     } catch (error) {
       console.log("parse data error", error);
