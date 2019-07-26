@@ -2,6 +2,7 @@ import { Message } from "iview";
 import HYZ from "hyz-components";
 import Vue from "vue";
 import store from "../store";
+import config from "../config";
 import router from "../router";
 class MSG {
   init() {

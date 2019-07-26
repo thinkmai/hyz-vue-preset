@@ -8,7 +8,7 @@ const wsPrefix = protocol === "https" ? "wss" : "ws";
 export const wsUrl =
   process.env.NODE_ENV === "production"
     ? `${wsPrefix}//${hostname}:${port + 2}/ws?ws_service_mark=***`
-    : `input websocket url ...`;
+    : `ws://123.207.167.163:9010/ajaxchattest`;
 
 export default {
   sysFlag: "hyz",
