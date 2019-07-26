@@ -33,6 +33,8 @@ new Vue({
       if (token) {
         store.dispatch("fetchAccount");
       }
+    } else {
+      msg.initWebsocket();
     }
   }
 }).$mount("#app");

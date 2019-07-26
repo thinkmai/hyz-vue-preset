@@ -72,6 +72,7 @@ const app = {
       })
         .then(response => {
           Vue.bus.$emit("$set_login_loding_false");
+          Vue.bus.$emit("$login_success");
           const menuList = _.filter(response.menuList, {
             sysFlag: Config.sysFlag
           });
@@ -106,6 +107,7 @@ const app = {
       Vue.ls.remove("IS_ADMIN");
       Vue.ls.remove("AUTH_MENUS");
       router.push("/login");
+      Vue.bus.$emit("$logout");
     }
   }
 };

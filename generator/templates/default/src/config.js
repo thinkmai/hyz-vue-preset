@@ -2,7 +2,13 @@ const { hostname, port, protocol } = window.location;
 const url =
   process.env.NODE_ENV === "production"
     ? `${protocol}//${hostname}:${port}`
-    : `https://turbo.linkme8.cn:33003/mock/5c8f0c3b9d070e0021a7cf75/hyz`;
+    : `input rest url ...`;
+
+const wsPrefix = protocol === "https" ? "wss" : "ws";
+export const wsUrl =
+  process.env.NODE_ENV === "production"
+    ? `${wsPrefix}//${hostname}:${port + 2}/ws?ws_service_mark=***`
+    : `input websocket url ...`;
 
 export default {
   sysFlag: "hyz",
@@ -20,5 +26,13 @@ export default {
     timeout: 10 * 1000,
     noToken: true,
     showSpin: true
+  },
+
+  //config for websocket
+  ws: {
+    url: wsUrl,
+    pingTimeout: 5000, //心跳间隔5s
+    pongTimeout: 2000, //后端pong 2s不回则重连
+    reconnectTimeout: 2000 //重连间隔
   }
 };
