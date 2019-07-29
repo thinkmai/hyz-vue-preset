@@ -4,10 +4,10 @@ const url =
     ? `${protocol}//${hostname}:${port}`
     : `input rest url ...`;
 
-const wsPrefix = protocol === "https" ? "wss" : "ws";
+const wsPrefix = protocol === "http:" ? "ws" : "wss";
 export const wsUrl =
   process.env.NODE_ENV === "production"
-    ? `${wsPrefix}//${hostname}:${port + 2}/ws?ws_service_mark=***`
+    ? `${wsPrefix}://${hostname}:${port + 2}/ws?ws_service_mark=***`
     : `ws://123.207.167.163:9010/ajaxchattest`;
 
 export default {
